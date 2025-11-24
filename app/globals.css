@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* TAILWIND V4 CONFIGURATION 
+  We map Tailwind utilities directly to our Next.js Font Variables 
+  and define our custom color palette here.
+*/
+@theme {
+  /* 1. Map Tailwind fonts to Next.js Variables */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+
+  /* 2. Define Your "Obsidian" Color Palette */
+  --color-bgMain: #0B0C10;
+  /* Deep Background */
+  --color-bgCard: #151920;
+  /* Card Surface */
+  --color-borderMain: #272B36;
+  /* Border */
+
+  /* 3. Define Accent Colors */
+  --color-accent: #6366F1;
+  /* Indigo-500 */
+  --color-accent-hover: #4F46E5;
+  /* Indigo-600 */
+  --color-accent-glow: rgba(99, 102, 241, 0.15);
+
+  /* 4. Define Radius Tokens (Optional but Pro) */
+  --radius-xl: 1rem;
+  /* 16px */
+  --radius-2xl: 1.5rem;
+  /* 24px */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Global Styles & Glassmorphism 
+  Tailwind v4 allows standard CSS alongside the theme configuration.
+*/
+@layer utilities {
+  .glass {
+    background: color-mix(in srgb, var(--color-bgCard) 70%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 
+/* Base Resets */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bgMain);
+  color: #E2E8F0;
 }
