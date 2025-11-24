@@ -7,8 +7,6 @@ import { FileQuestion, ArrowLeft } from "lucide-react";
 export default function NotFound() {
   return (
     <div className="flex flex-col min-h-screen bg-bgMain text-textMain">
-      <Navbar />
-
       <main className="flex-grow flex flex-col items-center justify-center text-center px-6">
         <div className="w-24 h-24 bg-bgCard rounded-3xl flex items-center justify-center mb-8 border border-borderMain shadow-2xl shadow-indigo-500/10">
           <FileQuestion className="w-12 h-12 text-textMuted" />
@@ -41,8 +39,6 @@ export default function NotFound() {
           </a>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
