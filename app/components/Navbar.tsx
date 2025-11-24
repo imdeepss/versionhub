@@ -38,7 +38,7 @@ export function Navbar() {
             <Search className="w-5 h-5" />
           </button>
           <a
-            href="https://github.com/imdeepss"
+            href="https://github.com/imdeepss/versionhub"
             target="_blank"
             rel="noreferrer"
             className="hidden sm:flex items-center gap-2 px-4 py-2 bg-white text-black rounded-lg text-sm font-semibold hover:bg-gray-200 transition-colors"
