@@ -3,11 +3,21 @@ import { Hero } from "@/app/components/Hero";
 import { RecentUpdates } from "@/app/components/RecentUpdates";
 import { Metadata } from "next";
 
+// 1. Define the Base URL dynamically
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL
+  ? `https://${process.env.NEXT_PUBLIC_APP_URL}`
+  : "http://localhost:3000";
+
+// OR, if you put "https://" inside your env variable (Recommended):
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://versionhub.vercel.app"), // Replace with your actual domain later
+  // 2. Use the variable here
+  metadataBase: new URL(appUrl),
+
   title: {
     default: "VersionHub | The Source of Truth for Software Versions",
-    template: "%s | VersionHub", // This adds "| VersionHub" to child pages automatically
+    template: "%s | VersionHub",
   },
   description:
     "Track the latest versions, release notes, and changelogs for programming languages, frameworks, and developer tools. Open source and free.",
@@ -26,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://versionhub.vercel.app",
+    url: appUrl,
     title: "VersionHub",
     description: "The open-source source of truth for software versions.",
     siteName: "VersionHub",
@@ -52,13 +62,8 @@ export default function Home() {
         <Hero />
 
         <div className="max-w-7xl mx-auto px-6">
-          {/* 1. Categories Grid */}
           <Categories />
-
-          {/* Divider */}
           <div className="h-px w-full bg-gradient-to-r from-transparent via-borderMain to-transparent my-12"></div>
-
-          {/* 2. Updates & Trending */}
           <RecentUpdates />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { recentUpdates, trendingTools } from "@/app/lib/data";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export function RecentUpdates() {
   return (

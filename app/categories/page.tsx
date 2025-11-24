@@ -9,7 +9,7 @@ export default function CategoriesPage() {
     <div className="flex flex-col min-h-screen bg-bgMain text-textMain">
       <Navbar />
 
-      <main className="flex-grow pt-32 pb-20 px-6">
+      <main className="grow pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-12">

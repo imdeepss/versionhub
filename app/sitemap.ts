@@ -2,9 +2,11 @@ import { MetadataRoute } from "next";
 import { toolDetails } from "@/app/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://versionhub.vercel.app";
+  // 1. Fetch from Env, fallback to your hardcoded Vercel URL just in case
+  const baseUrl =
+    process.env.NEXT_PUBLIC_APP_URL || "https://versionhubs.vercel.app";
 
-  // 1. Static Routes
+  // 2. Static Routes
   const routes = ["", "/categories", "/api"].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -12,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1,
   }));
 
-  // 2. Dynamic Tool Routes (Generated from your data)
+  // 3. Dynamic Tool Routes
   const toolRoutes = Object.keys(toolDetails).map((slug) => ({
     url: `${baseUrl}/tool/${slug}`,
     lastModified: new Date(),

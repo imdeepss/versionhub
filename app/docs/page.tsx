@@ -10,6 +10,8 @@ import {
 import Link from "next/link";
 
 export default function DocsPage() {
+  const appUrl =
+    process.env.NEXT_PUBLIC_APP_URL || "https://versionhubs.vercel.app";
   return (
     <div className="flex flex-col min-h-screen bg-bgMain text-textMain">
       <Navbar />
@@ -124,8 +126,8 @@ export default function DocsPage() {
             </p>
 
             <div className="bg-black p-4 rounded-xl border border-borderMain font-mono text-sm text-gray-300 overflow-x-auto">
-              <span className="text-purple-400">curl</span>{" "}
-              https://versionhub.vercel.app/api/v1/tool/nextjs
+              <span className="text-purple-400">curl</span> {appUrl}
+              /api/v1/tool/nextjs
             </div>
           </div>
         </div>

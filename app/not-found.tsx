@@ -1,7 +1,5 @@
+import { ArrowLeft, FileQuestion } from "lucide-react";
 import Link from "next/link";
-import { Navbar } from "@/app/components/Navbar";
-import { Footer } from "@/app/components/Footer";
-import { FileQuestion, ArrowLeft } from "lucide-react";
 
 // The word "default" is REQUIRED here for pages
 export default function NotFound() {

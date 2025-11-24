@@ -1,13 +1,11 @@
-import { Footer } from "@/app/components/Footer";
-import { Navbar } from "@/app/components/Navbar";
 import { Terminal } from "lucide-react";
 
 export default function ApiDocs() {
+  const appUrl =
+    process.env.NEXT_PUBLIC_APP_URL || "https://versionhubs.vercel.app";
   return (
     <div className="flex flex-col min-h-screen bg-bgMain text-textMain">
-      <Navbar />
-
-      <main className="flex-grow pt-32 pb-20 px-6">
+      <main className="grow pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
             <div className="p-3 bg-accent/10 rounded-xl text-accent">
@@ -45,7 +43,8 @@ export default function ApiDocs() {
                   Example Request
                 </div>
                 <pre className="bg-black p-4 rounded-xl overflow-x-auto text-sm font-mono text-gray-300 border border-borderMain">
-                  {`curl https://versionhub.vercel.app/api/v1/tool/nextjs`}
+                  {/* Note the usage of ${appUrl} inside the backticks */}
+                  {`curl ${appUrl}/api/v1/tool/nextjs`}
                 </pre>
               </div>
 
@@ -69,8 +68,6 @@ export default function ApiDocs() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

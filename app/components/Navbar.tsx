@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Search, Github } from "lucide-react";
 import { Logo } from "@/app/components/icons/Logo";
+import { Github, Search } from "lucide-react";
+import Link from "next/link";
 
 export function Navbar() {
   return (
